@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja Online</title>
+
+<!-- BOOTSTRAP CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<header class="header">
+<div class="header-content container d-flex justify-content-between align-items-center">
+
+    <form class="search-bar d-flex">
+        <input type="text" placeholder="Buscar..." class="form-control">
+        <button class="btn btn-primary ms-2">Buscar</button>
+    </form>
+
+    <div class="header-actions d-flex align-items-center gap-3">
+        <button id="openLogin" class="btn btn-link">Entrar</button>
+
+        <button id="openCartBtn" class="btn btn-outline-secondary position-relative" aria-label="abrir carrinho">
+            <img src="carrinhosimbol.png" alt="carrinho">
+            <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+        </button>
+    </div>
+
+</div>
+</header>
+
+
+<main class="container mt-4">
+
+<section class="hero row g-4">
+
+    <div class="carousel col-md-8" id="carousel">
+        <img src="banner1.png" alt="banner" class="img-fluid rounded shadow-sm">
+    </div>
+
+    <aside class="promo col-md-4 p-4 bg-light rounded shadow-sm">
+        <h2>Black Friday Maluca</h2>
+        <p class="text-muted">Frete grátis acima de R$499 • Pagamento via PIX</p>
+        <button class="btn btn-dark w-100" onclick="filterDiscount()">Ver ofertas</button>
+    </aside>
+
+</section>
+
+
+<section class="section-header mt-5 d-flex justify-content-between align-items-center">
+<h3>Produtos em destaque</h3>
+<div class="text-muted">Mostrando <span id="shownCount">0</span> itens</div>
+</section>
+
+
+<section id="productGrid" class="row g-4 mt-3" aria-live="polite">
+<!-- cards inseridos via script.js -->
+</section>
+
+</main>
+
+
+<!-- CART DRAWER -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+<div class="cart-header d-flex justify-content-between align-items-center">
+<h4>Carrinho</h4>
+<button id="closeCart" class="btn btn-link">Fechar</button>
+</div>
+
+<div id="cartList" class="cart-list"></div>
+
+<div class="cart-footer">
+<div class="cart-total">Total: <strong id="cartTotal">R$ 0,00</strong></div>
+<button id="checkoutBtn" class="btn btn-primary w-100">Finalizar Compra</button>
+</div>
+</aside>
+
+
+<!-- MODAL BACKDROP (pode virar um modal Bootstrap se quiser) -->
+<div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+<div class="modal" id="modalContent"></div>
+</div>
+
+
+<script src="script.js"></script>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
